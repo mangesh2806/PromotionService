@@ -7,20 +7,27 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 @DynamoDBTable(tableName="Price")
 public class Price {
 
-	private int priceId;
+	private Integer priceId;
 	private String storeId;
 	private String productId;
-	private String productRegularPrice;
+	private Double productRegularPrice;
 	private String sellingUnitOfMeasure;
-	private String simplePromotionPrice;
-	private String actualPrice;
-	private String isOnSimplePromotion;
+	private Double simplePromotionPrice;
+	private Double actualPrice;
+	private boolean isOnSimplePromotion;
+	
+	//added new attributes as per the new contracts received
+	
+	private String sellingUEP;
+	private Double wasPrice;
+	private Double wasWasPrice;
+	//end
 		
 	@DynamoDBHashKey(attributeName="price_id")
-	public int getPriceId() {
+	public Integer getPriceId() {
 		return priceId;
 	}
-	public void setPriceId(int priceId) {
+	public void setPriceId(Integer priceId) {
 		this.priceId = priceId;
 	}
 	@DynamoDBAttribute(attributeName="store_id")
@@ -40,10 +47,10 @@ public class Price {
 	}
 	
 	@DynamoDBAttribute(attributeName="productRegularPrice")
-	public String getProductRegularPrice() {
+	public Double getProductRegularPrice() {
 		return productRegularPrice;
 	}
-	public void setProductRegularPrice(String productRegularPrice) {
+	public void setProductRegularPrice(Double productRegularPrice) {
 		this.productRegularPrice = productRegularPrice;
 	}
 	
@@ -56,42 +63,26 @@ public class Price {
 	}
 	
 	@DynamoDBAttribute(attributeName="simplePromotionPrice")
-	public String getSimplePromotionPrice() {
+	public Double getSimplePromotionPrice() {
 		return simplePromotionPrice;
 	}
-	public void setSimplePromotionPrice(String simplePromotionPrice) {
+	public void setSimplePromotionPrice(Double simplePromotionPrice) {
 		this.simplePromotionPrice = simplePromotionPrice;
 	}
 	
 	@DynamoDBAttribute(attributeName="actualPrice")
-	public String getActualPrice() {
+	public Double getActualPrice() {
 		return actualPrice;
 	}
-	public void setActualPrice(String actualPrice) {
+	public void setActualPrice(Double actualPrice) {
 		this.actualPrice = actualPrice;
 	}
-	
 	@DynamoDBAttribute(attributeName="isOnSimplePromotion")
-	public String getIsOnSimplePromotion() {
+	public boolean isOnSimplePromotion() {
 		return isOnSimplePromotion;
 	}
-	public void setIsOnSimplePromotion(String isOnSimplePromotion) {
+	public void setOnSimplePromotion(boolean isOnSimplePromotion) {
 		this.isOnSimplePromotion = isOnSimplePromotion;
-	}
-	
-	/*private String price;
-	private String sellingUEP;
-	private String promotionPrice;
-	private String wasPrice;
-	private String wasWasPrice;
-	private String higherPriceChargedDates;
-	
-	@DynamoDBHashKey(attributeName="price")
-	public String getPrice() {
-		return price;
-	}
-	public void setPrice(String price) {
-		this.price = price;
 	}
 	@DynamoDBAttribute(attributeName="sellingUEP")
 	public String getSellingUEP() {
@@ -100,36 +91,21 @@ public class Price {
 	public void setSellingUEP(String sellingUEP) {
 		this.sellingUEP = sellingUEP;
 	}
-	@DynamoDBAttribute(attributeName="promotionPrice")
-	public String getPromotionPrice() {
-		return promotionPrice;
-	}
-	public void setPromotionPrice(String promotionPrice) {
-		this.promotionPrice = promotionPrice;
-	}
 	@DynamoDBAttribute(attributeName="wasPrice")
-	public String getWasPrice() {
+	public Double getWasPrice() {
 		return wasPrice;
 	}
-	public void setWasPrice(String wasPrice) {
+	public void setWasPrice(Double wasPrice) {
 		this.wasPrice = wasPrice;
 	}
 	@DynamoDBAttribute(attributeName="wasWasPrice")
-	public String getWasWasPrice() {
+	public Double getWasWasPrice() {
 		return wasWasPrice;
 	}
-	public void setWasWasPrice(String wasWasPrice) {
+	public void setWasWasPrice(Double wasWasPrice) {
 		this.wasWasPrice = wasWasPrice;
 	}
-	@DynamoDBAttribute(attributeName="higherPriceChargedDates")
-	public String getHigherPriceChargedDates() {
-		return higherPriceChargedDates;
-	}
-	public void setHigherPriceChargedDates(String higherPriceChargedDates) {
-		this.higherPriceChargedDates = higherPriceChargedDates;
-	}*/
 	
 	
-
-	
+			
 }
